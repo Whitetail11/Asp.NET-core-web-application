@@ -7892,11 +7892,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\github\\Asp.NET-core-web-application\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "D:\\github\\Asp.NET-core-web-application\\Server\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "D:\\github\\Asp.NET-core-web-application\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "D:\\github\\Asp.NET-core-web-application\\Server\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\danya\\.nuget\\packages\\",
-      "outputPath": "D:\\github\\Asp.NET-core-web-application\\WebApplication1\\WebApplication1\\obj\\",
+      "outputPath": "D:\\github\\Asp.NET-core-web-application\\Server\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

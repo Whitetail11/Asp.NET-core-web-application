@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KS1SEAnNGZ1SZuv9nWWIpTSf4qZLvtsScYjJnXnxgc8mzUQTe8jrhXgjC7q0CI3H6EtWknOERR7NOCPLT+aENg==",
+  "dgSpecHash": "Y1bbugjrg52Z5TAmTxGyik4nYzIpBIbKI+NCLQRFPPOdkPawpHWihWLCziwHhEod4S68nlsGWCJetgsI6O2qug==",
   "success": true,
-  "projectFilePath": "D:\\github\\Asp.NET-core-web-application\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "D:\\github\\Asp.NET-core-web-application\\Server\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danya\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",

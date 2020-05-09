@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted() {
-    fetch('https://localhost:5001/user/get')
+    fetch('https://localhost:5001/api/user')
     .then(response => response.json())
     .then(json => {
       this.users = json
