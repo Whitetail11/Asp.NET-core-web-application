@@ -56,9 +56,7 @@ namespace WebApplication1
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "/{controller=Home}/{action=Hello}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

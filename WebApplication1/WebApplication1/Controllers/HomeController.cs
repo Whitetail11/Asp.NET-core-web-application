@@ -6,8 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
+        [HttpGet]
         public string Hello()
         {
             return "Hello";

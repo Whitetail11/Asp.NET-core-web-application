@@ -7,42 +7,40 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class PollController : Controller
     {
         PollRepository repo = new PollRepository();
         [HttpGet]
-        [Route("Poll/Get")]
         public IEnumerable<Poll> GetPs()
         {
             var polls = repo.GetPolls();
             return polls;
         }
-        [HttpGet]
-        [Route("Poll/Get/{id?}")]
+        [HttpGet("{id}")]
         public Poll Getp(int id)
         {
             return repo.Get(id);
         }
         [HttpPost]
-        [ActionName("CreatePoll")]
         public IActionResult Create(Poll poll)
         {
             repo.Create(poll);
-            return RedirectPermanent("~/Poll/Get");
+            return RedirectPermanent("~/api/Poll");
         }
         [HttpPost]
         [ActionName("Edit")]
         public IActionResult EditPoll(Poll poll)
         {
             repo.Update(poll);
-            return RedirectPermanent("~/Poll/Get");
+            return RedirectPermanent("~/api/Poll");
         }
-        [Route("Poll/delete/{id?}")]
-        [HttpPost]
+        [Route("delete/{id?}")]
         public IActionResult Delete(int id)
         {
             repo.Delete(id);
-            return RedirectPermanent("~/Poll/Get");
+            return RedirectPermanent("~/api/Poll");
         }
 
     }
