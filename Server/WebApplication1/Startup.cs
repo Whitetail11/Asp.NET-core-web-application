@@ -30,7 +30,10 @@ namespace WebApplication1
                                   builder =>
                                   {
                                       builder
-                                        .WithOrigins("http://localhost:8080");
+                                        .WithOrigins("http://localhost:8080")
+                                        .AllowAnyMethod()
+                                        .AllowAnyHeader()
+                                        .AllowCredentials();
                                   });
             });
 

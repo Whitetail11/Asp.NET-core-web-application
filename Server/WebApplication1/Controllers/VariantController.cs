@@ -28,8 +28,7 @@ namespace WebApplication1.Controllers
             repo.Create(variant);
             return RedirectPermanent("~/api/Variant");
         }
-        [HttpPost]
-        [ActionName("Edit")]
+        [HttpPut]
         public IActionResult EditVar(Variant variant)
         {
             repo.Update(variant);

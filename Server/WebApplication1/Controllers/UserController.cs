@@ -12,7 +12,6 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-
         UserPepository repo = new UserPepository();
         [HttpGet]
         public List<User> GetUs()
@@ -20,11 +19,10 @@ namespace WebApplication1.Controllers
             var users = repo.GetUsers();
             return users;
         }
-       // [Route("User/Get/{id?}")]
         [HttpGet("{id}")]
-        public string GetU(int id)
+        public User GetU(int id)
         {
-            return repo.Get(id).Email;
+            return repo.Get(id);
         }
         [HttpPost]
         public IActionResult Create(User user)
@@ -32,14 +30,13 @@ namespace WebApplication1.Controllers
             repo.Create(user);
             return RedirectPermanent("~/api/User");
         }
-        [HttpPost]
-        [ActionName("Edit")]
+        [HttpPut]
         public IActionResult EditUser(User user)
         {
             repo.Update(user);
             return RedirectPermanent("~/api/User");
         }
-        [Route("delete/{id?}")]
+        [HttpPost("{id}")] 
         public IActionResult Delete(int id)
         {
             repo.Delete(id);

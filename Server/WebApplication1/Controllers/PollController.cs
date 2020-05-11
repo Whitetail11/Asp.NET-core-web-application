@@ -29,8 +29,7 @@ namespace WebApplication1.Controllers
             repo.Create(poll);
             return RedirectPermanent("~/api/Poll");
         }
-        [HttpPost]
-        [ActionName("Edit")]
+        [HttpPut]
         public IActionResult EditPoll(Poll poll)
         {
             repo.Update(poll);
