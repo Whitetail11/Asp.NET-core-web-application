@@ -25,10 +25,18 @@ namespace WebApplication1.Controllers
             return repo.Get(id);
         }
         [HttpPost]
-        public IActionResult Create(User user)
+        public bool Create(User user)
         {
+            var users = repo.GetUsers();
+            foreach(var value in users)
+            {
+                if(value.Email==user.Email)
+                {
+                    return false;
+                }
+            }
             repo.Create(user);
-            return RedirectPermanent("~/api/User");
+            return true;
         }
         [HttpPut]
         public IActionResult EditUser(User user)

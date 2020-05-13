@@ -2,10 +2,9 @@
     <div>
         <ul>
             
-           <UserItem
-            v-for="user in users" 
-            v-bind:user="user">
-            </UserItem>
+           <User v-for="user in users" 
+           v-bind:user="user"
+           :key="user.id"></User>
                 
            
         </ul>
@@ -13,11 +12,11 @@
 </template>
 
 <script>
-import UserItem from '@/components/UserItem.vue'
+import User from '@/components/User.vue'
 export default {
     props: ['users'],
     components: {
-        UserItem
+        User
     }
 }
 </script>
