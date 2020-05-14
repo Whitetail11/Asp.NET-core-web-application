@@ -57,7 +57,7 @@ export default {
          }).then(res => res.json()).then(json => this.isregistration = json).finally(() => {
             console.log(this.isregistration)
               if(this.isregistration) {
-                  this.$router.push('/users')
+                  this.$router.push('/')
               }    
              else {
                  this.error = 'пользователь с таким Email уже есть!'    
