@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     {
         PollRepository repo = new PollRepository();
         [HttpGet]
-        public IEnumerable<Poll> GetPs()
+        public List<Poll> GetPs()
         {
             var polls = repo.GetPolls();
             return polls;

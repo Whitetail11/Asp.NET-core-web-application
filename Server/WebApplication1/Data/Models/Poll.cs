@@ -14,5 +14,6 @@ namespace WebApplication1.Models
         public DateTime DeadLine { get; set; }
         public int Author_Id  { get; set; }
         public int MaxVariantByUser { get; set; }
+        public Variant [] variants { get; set; } 
     }
 }

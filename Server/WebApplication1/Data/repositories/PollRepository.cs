@@ -16,7 +16,12 @@ namespace WebApplication1.Models
             List<Poll> polls = new List<Poll>();
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                polls = db.Query<Poll>("SELECT * FROM Poll").ToList();
+                var temp = db.Query<Poll>("SELECT * FROM Poll").ToArray();
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    temp[i].variants = db.Query<Variant>("Select * from Variant Where Id_Poll=@Id", new { temp[i].Id }).ToArray();
+                    polls.Add(temp[i]);
+                }
             }
             return polls;
         }
@@ -26,6 +31,7 @@ namespace WebApplication1.Models
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 poll = db.Query<Poll>("SELECT * FROM Poll WHERE Id = @id", new { id }).FirstOrDefault();
+                poll.variants = db.Query<Variant>("Select * from Variant Where Id_Poll=@Id", new { poll.Id }).ToArray();
             }
             return poll;
         }
