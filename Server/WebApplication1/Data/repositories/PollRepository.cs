@@ -17,10 +17,38 @@ namespace WebApplication1.Models
             using (IDbConnection db = new SqlConnection(connectionString))
             {
                 var temp = db.Query<Poll>("SELECT * FROM Poll").ToArray();
-                for (int i = 0; i < temp.Length; i++)
+                var Poll_Process = db.Query<PollProcess>("select * from Poll_Process").ToArray();
+                var Users = db.Query<User>("select * from users").ToArray();
+                int UsersCounter = 0;
+
+
+                for (int index = 0; index < temp.Length; index++)
                 {
-                    temp[i].variants = db.Query<Variant>("Select * from Variant Where Id_Poll=@Id", new { temp[i].Id }).ToArray();
-                    polls.Add(temp[i]);
+                    temp[index].variants = db.Query<Variant>("Select * from Variant Where Id_Poll=@Id", new { temp[index].Id }).ToArray();
+                   
+
+                    for (int i = 0; i < temp[index].variants.Length; i++)
+                    {
+                        temp[index].variants[i].users = new User[0];
+                        for (int j = 0; j < Poll_Process.Length; j++)
+                        {
+                            if (Poll_Process[j].Id_Variant == temp[index].variants[i].Id)
+                            {
+                                for (int k = 0; k < Users.Length; k++)
+                                {
+                                    if (Users[k].Id == Poll_Process[j].Id_User)
+                                    {
+                                        Array.Resize(ref temp[index].variants[i].users, UsersCounter+1);
+                                        temp[index].variants[i].users[UsersCounter] = Users[k];
+                                    }
+                                }
+                                UsersCounter++;
+                            }
+                        }
+                        UsersCounter = 0;
+                    }
+
+                    polls.Add(temp[index]);
                 }
             }
             return polls;

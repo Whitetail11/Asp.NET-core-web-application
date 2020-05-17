@@ -1,7 +1,7 @@
 <template>
 <li>
       <span>
-          <input type="checkbox">
+          <input type="checkbox" v-on:change="$emit('change',variant.id)">
           {{variant.name}}
       </span>
   </li>
@@ -27,7 +27,7 @@ li {
     padding: 5px; /* Поля вокруг текста */
     display: flex;
     margin-bottom: 5px;
-    width: 100%;
+    width: 90%;
 }
 .container {
     

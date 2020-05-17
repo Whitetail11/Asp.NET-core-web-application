@@ -16,7 +16,30 @@ namespace WebApplication1.Models
             List<Variant> variants = new List<Variant>();
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                variants = db.Query<Variant>("SELECT * FROM Variant").ToList();
+                var temp = db.Query<Variant>("SELECT * FROM Variant").ToArray();
+                var Poll_Process = db.Query<PollProcess>("select * from Poll_Process").ToArray();
+                var Users = db.Query<User>("select * from users").ToArray();
+                int UsersCounter = 0;
+                for (int i = 0; i < temp.Length; i++)
+                {
+                    for (int j = 0; j < Poll_Process.Length; j++)
+                    {
+                        if(Poll_Process[j].Id_Variant == temp[i].Id)
+                        {
+                            for (int k = 0; k < Users.Length; k++)
+                            {
+                                if(Users[k].Id == Poll_Process[j].Id_User)
+                                {
+                                    temp[i].users[UsersCounter] = Users[k];
+                                    break;
+                                }
+                            }
+                            UsersCounter++;
+                        }
+                    }
+                    UsersCounter = 0;
+                    variants.Add(temp[i]);
+                }
             }
             return variants;
         }

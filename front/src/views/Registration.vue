@@ -18,7 +18,7 @@
 
 
     <div class="clearfix">
-      <router-link to="/login" tag="button" class="signupbtn">Sign In</router-link>
+      <router-link to="/" tag="button" class="signupbtn">Sign In</router-link>
       <button type="submit" class="signupbtn">Sign Up</button>
       
     </div>
@@ -55,7 +55,6 @@ export default {
         headers: { "Content-Type": "application/json;charset=utf-8" },
         body: JSON.stringify(user),
          }).then(res => res.json()).then(json => this.isregistration = json).finally(() => {
-            console.log(this.isregistration)
               if(this.isregistration) {
                   this.$router.push('/')
               }    

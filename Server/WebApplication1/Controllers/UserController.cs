@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using WebApplication1.Data.Models;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -28,9 +30,9 @@ namespace WebApplication1.Controllers
         public bool Create(User user)
         {
             var users = repo.GetUsers();
-            foreach(var value in users)
+            foreach (var value in users)
             {
-                if(value.Email==user.Email)
+                if (value.Email == user.Email)
                 {
                     return false;
                 }

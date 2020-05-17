@@ -9,7 +9,7 @@
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required v-model="password">
-
+    <p>{{this.error}}</p>
 
     <div class="clearfix">
       <button type="submit" class="signupbtn">Sign In</button>
@@ -22,9 +22,32 @@
 
 <script>
 export default {
+  data() {
+    return {
+      useremail: '',
+      password: '',
+      error: '',
+      
+    }
+  },
     methods: {
         login: function() {
-            const { useremail, password } = this
+          let req = {useremail: this.useremail, password: this.password}
+          let islogin = 0;
+             let responce = fetch("https://localhost:5001/api/req", {
+        method: "POST",
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+        body: JSON.stringify(req),
+         }).then(res => res.json()).then(json => islogin = json).finally(() => {
+           if(islogin != 0)
+           {
+             this.$router.push({ path: `/Home/${islogin}` })
+           }
+           else {
+             this.password = '',
+             this.error = 'Неверный Email или Password'
+           }
+         })
             
         }
     }

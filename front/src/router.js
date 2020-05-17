@@ -7,13 +7,9 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [{
-            path: '/',
+            path: '/Home/:id',
+            name: 'home',
             component: Home
-        },
-        {
-            path: '/users',
-            component: () =>
-                import ('./views/Users.vue')
         },
         {
             path: '/registration',
@@ -21,7 +17,7 @@ export default new Router({
                 import ('./views/Registration.vue')
         },
         {
-            path: '/login',
+            path: '/',
             component: () =>
                 import ('./views/Login.vue')
         }
