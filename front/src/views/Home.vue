@@ -14,8 +14,8 @@
         v-on:addvar="addvar"
         v-bind:UserId="UserId"
         v-on:voting="voting"
+        v-on:deletePoll="deletePoll"
       />
-
     <input type="text" placeholder="Создайте новый опрос..." v-model="name" />
     <button v-on:click="addPoll">
       <Zondicon icon="AddOutline" class="icon" />
@@ -36,6 +36,19 @@ export default {
   },
   
   methods: {
+    deletePoll(id) {
+      console.log(id)
+       let responce = fetch("https://localhost:5001/api/poll/" + id, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json;charset=utf-8"}
+      }).finally(() => {
+        fetch("https://localhost:5001/api/Poll")
+          .then((response) => response.json())
+          .then((json) => {
+            this.Polls = json;
+          });
+      });
+    },
     voting(userid, changed) {
        let responce = fetch("https://localhost:5001/api/pollProcess", {
         method: "POST",
@@ -56,9 +69,10 @@ export default {
         name: this.name,
         datePublication: new Date(),
         deadLine: new Date("2020-05-21"),
-        author_Id: this.UserId,
+        author_Id: +this.UserId,
         maxVariantByUser: 1,
       };
+      console.log(this.Polls[0].isActive)
       let responce = fetch("https://localhost:5001/api/poll", {
         method: "POST",
         headers: { "Content-Type": "application/json;charset=utf-8" },

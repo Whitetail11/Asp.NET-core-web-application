@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-    <ul v-if="this.isvisible()"><strong>{{poll.name}}?</strong>
+    <ul v-if="this.isvisible()"><strong>{{poll.name}}?  <button v-on:click="$emit('deletePoll', poll.id)" class="deletePoll"><Zondicon icon="CloseOutline" class="icon" v-if="isthisUser()"/></button></strong>
     <Variant 
         v-for="variant in poll.variants"
         :key="variant.id"
@@ -10,12 +10,12 @@
 
     <input type="text" placeholder="Введите новый вариант ответа..." v-model="name" v-if="UserId==poll.author_Id">
     <div class="button-container">
-        <button 
+        <button class="buttons"
             v-if="name != ''"
             v-on:click="$emit('addvar', poll.id, name),name = ''">Добавить вариант ответа
         </button>
         
-        <button v-on:click="$emit('voting', UserId, changed),name = ''">Проголосовать</button>
+        <button class="buttons" v-on:click="$emit('voting', UserId, changed),name = ''">Проголосовать</button>
     </div>
     </ul>
     <ul v-else><strong>{{poll.name}}?</strong>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import Zondicon from "vue-zondicons";
 import Variant from '@/components/Variant.vue'
 import progressVariant from '@/components/progress-variant.vue'
 export default {
@@ -41,6 +42,13 @@ export default {
         }
     },
     methods: {
+      isthisUser() {
+        let res = false;
+        console.log(this.poll.id)
+        if(this.poll.author_Id == this.UserId) {
+          res = true;
+        } return res
+      },
       change(id) {
         for(let i = 0; i < this.poll.variants.length; i++) {
           if(this.poll.variants[i].id == id) {
@@ -75,7 +83,7 @@ export default {
     }
   },
   components: {
-      Variant,progressVariant
+      Variant,progressVariant,Zondicon
   }
 };
 </script>
@@ -91,7 +99,7 @@ export default {
         padding-bottom: 10px;
 
     }
-    button {
+    .buttons {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
@@ -106,7 +114,7 @@ export default {
     justify-content: space-between;
     padding-left: 10px;
 }
-button:hover {
+.buttons:hover {
   opacity:1;
 }
 .container {
@@ -128,5 +136,15 @@ input {
 }
 strong {
   margin-bottom: 5px;
+}
+.icon {
+  height: 15px;
+  width: 15px;
+
+}
+.deletePoll {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 </style>

@@ -27,8 +27,6 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Create(Poll poll)
         {            
-            //Request.Headers.TryGetValue("id", out StringValues vs);
-            //var id = Convert.ToInt32(vs.ToArray()[0]);
             repo.Create(poll);
             return RedirectPermanent("~/api/Poll");
         }
@@ -38,7 +36,7 @@ namespace WebApplication1.Controllers
             repo.Update(poll);
             return RedirectPermanent("~/api/Poll");
         }
-        [Route("delete/{id?}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             repo.Delete(id);

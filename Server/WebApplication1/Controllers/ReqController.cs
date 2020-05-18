@@ -13,11 +13,6 @@ namespace WebApplication1.Controllers
     public class ReqController : Controller
     {
         UserPepository repo = new UserPepository();
-        [HttpGet]
-        public int Test()
-        {
-            return 4;
-        }
         [HttpPost]
         public int Login(Req req)
         {

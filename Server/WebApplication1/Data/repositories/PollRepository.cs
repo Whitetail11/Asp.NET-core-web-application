@@ -86,6 +86,28 @@ namespace WebApplication1.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
+                var poll = this.Get(id);
+                var Variants = db.Query<Variant>("Select * from Variant Where Id_Poll=@Id", new {poll.Id }).ToArray();
+                PollProcess[] Poll_Process = db.Query<PollProcess>("Select * from Poll_Process").ToArray();
+                if(Variants.Length > 0)
+                {
+                    for (int i = 0; i < Poll_Process.Length; i++)
+                    {
+                        if (Poll_Process[i].Id_Variant == Variants[i].Id)
+                        {
+                            var sqlQuery1 = "DELETE FROM Poll_Process WHERE Id_Variant = @id";
+                            db.Execute(sqlQuery1, new { Variants[i].Id });
+                        }
+                    }
+                    for (int i = 0; i < Variants.Length; i++)
+                    {
+                        if (Variants[i].Id_Poll == id)
+                        {
+                            var sqlQuery1 = "DELETE FROM Variant WHERE Id_Poll = @id";
+                            db.Execute(sqlQuery1, new { id });
+                        }
+                    }
+                }
                 var sqlQuery = "DELETE FROM Poll WHERE Id = @id";
                 db.Execute(sqlQuery, new { id });
             }
