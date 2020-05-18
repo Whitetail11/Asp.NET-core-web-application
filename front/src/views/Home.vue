@@ -37,7 +37,6 @@ export default {
   
   methods: {
     deletePoll(id) {
-      console.log(id)
        let responce = fetch("https://localhost:5001/api/poll/" + id, {
         method: "DELETE",
         headers: { "Content-Type": "application/json;charset=utf-8"}

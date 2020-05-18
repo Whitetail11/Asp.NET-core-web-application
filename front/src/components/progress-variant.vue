@@ -18,7 +18,7 @@ import Zondicon from "vue-zondicons";
 export default {
   data() {
     return {
-      procent: (this.variant.users.length * 100) / this.getmax(),
+      procent: ((this.variant.users.length * 100) / this.getmax()).toFixed(2),
     };
   },
   components: {

@@ -93,10 +93,13 @@ namespace WebApplication1.Models
                 {
                     for (int i = 0; i < Poll_Process.Length; i++)
                     {
-                        if (Poll_Process[i].Id_Variant == Variants[i].Id)
+                        for( int j = 0; j < Variants.Length; j++)
                         {
-                            var sqlQuery1 = "DELETE FROM Poll_Process WHERE Id_Variant = @id";
-                            db.Execute(sqlQuery1, new { Variants[i].Id });
+                            if (Poll_Process[i].Id_Variant == Variants[j].Id)
+                            {
+                                var sqlQuery1 = "DELETE FROM Poll_Process WHERE Id_Variant = @id";
+                                db.Execute(sqlQuery1, new { Variants[j].Id });
+                            }
                         }
                     }
                     for (int i = 0; i < Variants.Length; i++)

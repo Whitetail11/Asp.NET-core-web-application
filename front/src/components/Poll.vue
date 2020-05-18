@@ -18,7 +18,7 @@
         <button class="buttons" v-on:click="$emit('voting', UserId, changed),name = ''">Проголосовать</button>
     </div>
     </ul>
-    <ul v-else><strong>{{poll.name}}?</strong>
+    <ul v-else><strong>{{poll.name}}?   <button v-on:click="$emit('deletePoll', poll.id)" class="deletePoll"><Zondicon icon="CloseOutline" class="icon" v-if="isthisUser()"/></button></strong>
     <progressVariant 
         v-for="variant in poll.variants"
         :key="variant.id"
