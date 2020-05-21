@@ -67,7 +67,7 @@ namespace WebApplication1.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "INSERT INTO Poll (Name, DatePublication, DeadLine, Author_Id, MaxVariantByUser) VALUES(@Name, @DatePublication,@DeadLine, @Author_Id, @MaxVariantByUser); SELECT CAST(SCOPE_IDENTITY() as int)";
+                var sqlQuery = "INSERT INTO Poll (Name, DatePublication, DeadLine, Author_Id, MaxVariantByUser, isActive, IsCanAddVariants) VALUES(@Name, @DatePublication,@DeadLine, @Author_Id, @MaxVariantByUser, @isActive, @IsCanAddVariants); SELECT CAST(SCOPE_IDENTITY() as int)";
                 int pollId = db.Query<int>(sqlQuery, poll).FirstOrDefault();
                 poll.Id = pollId;
             }
@@ -77,7 +77,7 @@ namespace WebApplication1.Models
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "UPDATE Poll SET Name = @Name, DatePublication = @DatePublication, DeadLine = @DeadLine, Author_Id = @Author_Id, MaxVariantByUser = @MaxVariantByUser WHERE Id = @Id";
+                var sqlQuery = "UPDATE Poll SET Name = @Name, DatePublication = @DatePublication, DeadLine = @DeadLine, Author_Id = @Author_Id, MaxVariantByUser = @MaxVariantByUser, isActive = @IsActive, IsCanAddVariants = @IsCanAddVariants WHERE Id = @Id";
                 db.Execute(sqlQuery, poll);
             }
         }

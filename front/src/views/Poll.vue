@@ -1,15 +1,10 @@
 <template>
-  <div class="container" v-if="poll.isActive">
-    <ul v-if="this.isvisible()">
+    <div class="container" v-if="poll.isActive">
+        <h1>Проголосуйте!</h1>
+    <ul v-if="isvisible()">
       <strong
         >{{ poll.name }}?
-        <button v-on:click="$emit('deletePoll', poll.id)" class="deletePoll">
-          <Zondicon
-            icon="CloseOutline"
-            class="icon"
-            v-if="isthisUser()"
-          /></button
-      ></strong>
+        </strong>
       <Variant
         v-for="variant in poll.variants"
         :key="variant.id"
@@ -48,13 +43,7 @@
     <ul v-else>
       <strong
         >{{ poll.name }}?
-        <button v-on:click="$emit('deletePoll', poll.id)" class="deletePoll">
-          <Zondicon
-            icon="CloseOutline"
-            class="icon"
-            v-if="isthisUser()"
-          /></button
-      ></strong>
+        </strong>
       <progressVariant
         v-for="variant in poll.variants"
         :key="variant.id"
@@ -72,18 +61,24 @@
 </template>
 
 <script>
-import Zondicon from "vue-zondicons";
 import Variant from "@/components/Variant.vue";
 import progressVariant from "@/components/progress-variant.vue";
 export default {
-  data() {
-    return {
-      name: "",
-      changed: [],
-      author: {},
-    };
-  },
-  computed: {
+    data() {
+        return {
+            id: this.$route.params.id,
+            poll: {},
+            changed: [],
+            name: '',
+            author: {},
+
+        }
+    }, 
+    components: {
+            Variant,
+    progressVariant,
+    },
+      computed: {
     deadLine: function() {
       let res = (+(new Date(this.poll.deadLine)  - new Date())/(60*60*24*1000)).toFixed(0)
       if(res < 0) {
@@ -97,21 +92,34 @@ export default {
       return res +   ' дня(ей)';
     }
   },
-  mounted() {
-    let author;
+    mounted() {
+        fetch("https://localhost:5001/api/Poll/" + this.id)
+        .then((response) => response.json())
+        .then((json) => {
+          this.poll = json;
+        }).finally(() => {
+            let author;
     fetch("https://localhost:5001/api/user/" + this.poll.author_Id)
       .then((response) => response.json())
       .then((json) => {
         this.author = json;
       });
-  },
-  methods: {
-    isthisUser() {
-      let res = false;
-      if (this.poll.author_Id == this.UserId) {
-        res = true;
+        });
+        
+    },
+    methods: {
+        isvisible: function() {
+      for (let i = 0; i < this.poll.variants.length; i++) {
+          if(this.poll.variants[i].users == null) {
+              this.poll.variants[i].users = []
+          }
+        for (let j = 0; j < this.poll.variants[i].users.length; j++) {
+          if (this.UserId == this.poll.variants[i].users[j].id) {
+            return false;
+          }
+        }
       }
-      return res;
+      return true;
     },
     change(id) {
       for (let i = 0; i < this.poll.variants.length; i++) {
@@ -126,35 +134,11 @@ export default {
         }
       }
     },
-    isvisible: function() {
-      for (let i = 0; i < this.poll.variants.length; i++) {
-        for (let j = 0; j < this.poll.variants[i].users.length; j++) {
-          if (this.UserId == this.poll.variants[i].users[j].id) {
-            return false;
-          }
-        }
-      }
-      return true;
-    },
-  },
-  props: {
-    poll: {
-      type: Object,
-      required: true,
-    },
-    UserId: {
-      required: true,
-    },
-  },
-  components: {
-    Variant,
-    progressVariant,
-    Zondicon,
-  },
-};
+    }
+}
 </script>
 
-<style scoped>
+<style  scoped>
 ul {
   list-style: none;
   margin: 0;
@@ -187,7 +171,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  margin: 0;
+  margin: 0 auto;
 }
 input {
   border: 1px double rgb(60, 142, 180); /* Параметры границы */

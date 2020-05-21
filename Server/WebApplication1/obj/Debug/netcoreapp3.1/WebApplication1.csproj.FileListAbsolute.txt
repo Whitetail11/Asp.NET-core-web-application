@@ -329,8 +329,6 @@ D:\github\Asp.NET-core-web-application\Server\WebApplication1\bin\Debug\netcorea
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csprojAssemblyReference.cache
-D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.CoreCompileInputs.cache
-D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.MvcApplicationPartsAssemblyInfo.cache
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.AssemblyInfoInputs.cache
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.AssemblyInfo.cs
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.RazorTargetAssemblyInfo.cache
@@ -340,3 +338,6 @@ D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcorea
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.dll
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.pdb
 D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.genruntimeconfig.cache
+D:\github\Asp.NET-core-web-application\Server\WebApplication1\bin\Debug\netcoreapp3.1\NodaTime.dll
+D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.csproj.CoreCompileInputs.cache
+D:\github\Asp.NET-core-web-application\Server\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.MvcApplicationPartsAssemblyInfo.cache

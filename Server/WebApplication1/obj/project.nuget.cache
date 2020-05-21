@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Y1bbugjrg52Z5TAmTxGyik4nYzIpBIbKI+NCLQRFPPOdkPawpHWihWLCziwHhEod4S68nlsGWCJetgsI6O2qug==",
+  "dgSpecHash": "m4tPgrkWVYZAp1JBNn9HLnhu9ogbix9Qi89x/bycEeGua7hXR/CwApX1vx2JrP2Y+dZOlfBru4AWnjpSagSxHA==",
   "success": true,
   "projectFilePath": "D:\\github\\Asp.NET-core-web-application\\Server\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
@@ -39,6 +39,7 @@
     "C:\\Users\\danya\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\danya\\.nuget\\packages\\nodatime\\2.4.8\\nodatime.2.4.8.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

@@ -31,10 +31,10 @@ namespace WebApplication1.Controllers
             return RedirectPermanent("~/api/Poll");
         }
         [HttpPut]
-        public IActionResult EditPoll(Poll poll)
+        public bool EditPoll(Poll poll)
         {
             repo.Update(poll);
-            return RedirectPermanent("~/api/Poll");
+            return true;
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using NodaTime;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace WebApplication1.Models
         public int MaxVariantByUser { get; set; }
         public Variant [] variants { get; set; }
         public bool IsActive { get; set; }
+        public bool IsCanAddVariants { get; set; }
     }
 }
