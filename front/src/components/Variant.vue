@@ -1,7 +1,8 @@
 <template>
 <li>
       <span>
-          <input type="checkbox" v-on:change="$emit('change',variant.id)">
+          <input v-if="changed.length < poll.maxVariantByUser" type="checkbox" v-on:change="$emit('change',variant.id)">
+          <input v-else-if="variant.choose == true" type="checkbox" v-on:change="$emit('change',variant.id)">
           {{variant.name}}
       </span>
   </li>
@@ -15,7 +16,20 @@ export default {
       type: Object,
       required: true,
     },
+    poll: {
+      type: Object,
+      required: true,
+    },
+    changed: {
+      type: Array,
+      required: true,
+    },
+    index: {
+      required: true,
+    },
   },
+  mounted() {
+  }
 };
 </script>
 

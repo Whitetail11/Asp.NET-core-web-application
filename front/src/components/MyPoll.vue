@@ -8,9 +8,12 @@
         </strong>
       <strong>{{ poll.name }}? </strong>
       <Variant
-        v-for="variant in poll.variants"
-        :key="variant.id"
+        v-for="(variant, index) in poll.variants"
+        :key="index"
+        v-bind:index="index"
         v-bind:variant="variant"
+        v-bind:poll="poll"
+        v-bind:changed="changed"
         v-on:change="change"
       />
       <input
@@ -46,9 +49,12 @@
          </strong>
       <strong>{{ poll.name }}? </strong>
       <Variant
-        v-for="variant in poll.variants"
-        :key="variant.id"
+        v-for="(variant, index) in poll.variants"
+        :key="index"
+        v-bind:index="index"
         v-bind:variant="variant"
+        v-bind:poll="poll"
+        v-bind:changed="changed"
         v-on:change="change"
       />
     </ul>
@@ -62,6 +68,7 @@ export default {
   data() {
     return {
       name: "",
+      changed: []
     };
   },
   components: {
