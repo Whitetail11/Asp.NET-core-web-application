@@ -2,8 +2,7 @@
   "runtimeOptions": {
     "additionalProbingPaths": [
       "C:\\Users\\danya\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\danya\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Users\\danya\\.nuget\\packages"
     ]
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m4tPgrkWVYZAp1JBNn9HLnhu9ogbix9Qi89x/bycEeGua7hXR/CwApX1vx2JrP2Y+dZOlfBru4AWnjpSagSxHA==",
+  "dgSpecHash": "smmcnUsJ0OeuD+5wwNBA3JXiz2thCqbMedZndI3bPElNv1J0oNeGe8+LKFOUJlzOvWGjsl4I1HYMuo4+BtE/QA==",
   "success": true,
   "projectFilePath": "D:\\github\\Asp.NET-core-web-application\\Server\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
@@ -145,7 +145,8 @@
     "C:\\Users\\danya\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\danya\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\danya\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\danya\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\danya\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }
